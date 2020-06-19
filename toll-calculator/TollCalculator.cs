@@ -26,7 +26,7 @@ namespace toll_calculator {
                 Taxi t => TaxiToll,
                 Bus b => BusToll,
                 DeliveryTruck dt => DeliveryTruckToll,
-                { } => throw new ArgumentOutOfRangeException($"{nameof(vehicle)} is not one of the supported vehicles!"),
+                { } => throw new ArgumentOutOfRangeException(message: "This is not one of the supported vehicles!", paramName: nameof(vehicle)),
                 null => throw new ArgumentNullException(nameof(vehicle))
             };
     }
