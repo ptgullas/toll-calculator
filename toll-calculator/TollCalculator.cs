@@ -8,18 +8,18 @@ using System.Text;
 
 namespace toll_calculator {
     public class TollCalculator {
-        public double CarToll { get; set; }
-        public double TaxiToll { get; set; }
-        public double BusToll { get; set; }
-        public double DeliveryTruckToll { get; set; }
-        public TollCalculator(double carToll = 2, double taxiToll = 3.5, double busToll = 5, double deliveryTruckToll = 10) {
+        public decimal CarToll { get; set; }
+        public decimal TaxiToll { get; set; }
+        public decimal BusToll { get; set; }
+        public decimal DeliveryTruckToll { get; set; }
+        public TollCalculator(decimal carToll = 2, decimal taxiToll = 3.5m, decimal busToll = 5, decimal deliveryTruckToll = 10) {
             CarToll = carToll;
             TaxiToll = taxiToll;
             BusToll = busToll;
             DeliveryTruckToll = deliveryTruckToll;
         }
 
-        public double Calculate(object vehicle) {
+        public decimal Calculate(object vehicle) {
             if (vehicle is Car c) { return CarToll; }
             else if (vehicle is Taxi t) { return TaxiToll; }
             else if (vehicle is Bus b) { return BusToll; }
