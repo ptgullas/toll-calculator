@@ -19,13 +19,15 @@ namespace toll_calculator {
             DeliveryTruckToll = deliveryTruckToll;
         }
 
-        public decimal Calculate(object vehicle) {
-            if (vehicle is Car c) { return CarToll; }
-            else if (vehicle is Taxi t) { return TaxiToll; }
-            else if (vehicle is Bus b) { return BusToll; }
-            else if (vehicle is DeliveryTruck d) { return DeliveryTruckToll; }
-            else
-                throw new ArgumentOutOfRangeException($"{nameof(vehicle)} is not one of the supported vehicles!");
-        }
+        public decimal Calculate(object vehicle) =>
+            vehicle switch
+            {
+                Car c => CarToll,
+                Taxi t => TaxiToll,
+                Bus b => BusToll,
+                DeliveryTruck dt => DeliveryTruckToll,
+                { } => throw new ArgumentOutOfRangeException($"{nameof(vehicle)} is not one of the supported vehicles!"),
+                null => throw new ArgumentNullException(nameof(vehicle))
+            };
     }
 }
