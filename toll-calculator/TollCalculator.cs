@@ -19,7 +19,7 @@ namespace toll_calculator {
             DeliveryTruckToll = deliveryTruckToll;
         }
 
-        public decimal Calculate(object vehicle) =>
+        public decimal CalculateToll(object vehicle) =>
             vehicle switch
             {
                 Car c => CarToll,
